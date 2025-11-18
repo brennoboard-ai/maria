@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Livro da Maria</title>
+
+<style>
+
+/* ---------- CONFIGURAÇÃO DO FUNDO ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #2a1f0f, #0d0a07);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Garamond", serif;
+}
+
+/* ---------- CAPA DO LIVRO ---------- */
+#cover {
+    position: absolute;
+    width: 420px;
+    height: 600px;
+    background: linear-gradient(135deg, #caa34d, #8d6b25);
+    border: 6px solid #d4b76f;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 1.5s ease-in-out, opacity 1s;
+    z-index: 10;
+}
+
+#cover h1 {
+    color: white;
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px gold;
+}
+
+/* ---------- LIVRO (PÁGINAS) ---------- */
+.book {
+    width: 850px;
+    height: 600px;
+    display: none;
+    opacity: 0;
+    transition: opacity 1.5s;
+    position: relative;
+}
+
+.page {
+    width: 420px;
+    height: 600px;
+    background: #f3e7c1;
+    border-radius: 4px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+    padding: 40px;
+    overflow-y: auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ---------- ANIMAÇÃO DE BRILHOS ---------- */
+.magic {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gold;
+    animation: sparkle 4s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+@keyframes sparkle {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    100% { transform: translateY(800px) scale(0); opacity: 0; }
+}
+
+/* ---------- TEXTO ---------- */
+p {
+    margin-bottom: 18px;
+}
+
+/* ---------- IMAGENS ---------- */
+.photo {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" src="where_have_you_been.mp3"></audio>
+
+<!-- CAPA -->
+<div id="cover" onclick="openBook()">
+    <h1>Livro da Maria</h1>
+</div>
+
+<!-- BRILHOS MÁGICOS -->
+<script>
+for (let i=0; i<40; i++) {
+    let star = document.createElement("div");
+    star.classList.add("magic");
+    star.style.left = Math.random()*100 + "vw";
+    star.style.animationDelay = Math.random()*4 + "s";
+    document.body.appendChild(star);
+}
+</script>
+
+<!-- LIVRO -->
+<div id="book" class="book">
+
+    <!-- PÁGINA ESQUERDA -->
+    <div class="page">
+        <p><b>Maria,</b></p>
+
+        <p>Maria… é até difícil saber por onde começar quando lembro de tudo o que a gente viveu nesses três anos. Parece que foi ontem que a gente entrou no 1º ano todo perdido, todo confuso, e sem imaginar que dali nasceria uma amizade tão forte quanto a nossa. Você, eu e a Ághata… três pessoas completamente diferentes, cada uma com seu jeito próprio, mas que se encaixaram de um jeito que nem dá pra explicar direito. O trio ABM começou quase sem querer, mas se tornou uma das melhores partes desse Ensino Médio inteiro.</p>
+
+        <p>E você, Maria… você sempre teve um papel especial nessa história. Com esse seu jeito bravo, direto, sério e intenso — que às vezes até assusta um pouco (coitado do seu futuro namorado mesmo… ele vai ter que ser guerreiro kkkkk), mas que no fundo revela uma mulher leal, verdadeira e que não aceita menos do que merece. Você é firme, forte e cheia de personalidade. E isso sempre fez diferença na nossa amizade. Muitas vezes, quando eu e a Ághata estávamos perdidos nas nossas emoções, era você quem puxava a gente pra realidade. Do seu jeito, duro às vezes, mas sempre sincero.</p>
+
+        <img src="photo1.jpg" class="photo">
+    </div>
+
+    <!-- PÁGINA DIREITA -->
+    <div class="page">
+        <p>A gente viveu tanta coisa juntos… Agroleite, gruta, Colombo, vinícola, hidroponia… e mais outras histórias que só a gente lembra. E o mais bonito disso tudo é que, mesmo com brigas, discussões, momentos esquisitos e semanas meio tortas, a gente nunca deixou de ser um trio. No máximo ficou sem se falar uns dias… mas a gente sempre voltava. E isso diz muito. Diz que existiu verdade. Existiu carinho. Existiu história. E existiu você, com esse seu jeitinho único que deixou marca em tudo.</p>
+
+        <p>Agora, no final do 3º ano, bate aquele sentimento estranho… uma mistura de saudade antecipada com medo do futuro. Porque a verdade é que, querendo ou não, cada um vai seguir seu caminho. A vida vai espalhar a gente por aí. Mas eu espero, de verdade, que você nunca se esqueça do quanto você foi importante pra mim e pro nosso trio ABM. Sem você, nada teria sido igual. Nada teria sido tão único, tão engraçado, tão marcante.</p>
+
+        <p>E tem uma frase que eu escolhi porque combina exatamente com você e com a força que você carrega no peito:<br>
+        “Todos nós temos luz e trevas dentro de nós. O que importa é o lado que escolhemos para agir.” — Sirius Black</p>
+
+        <p>E você, Maria, sempre escolheu agir com coragem, verdade e intensidade. Sempre escolheu ser você — e isso é uma das coisas que eu mais admiro.</p>
+
+        <p>Eu tenho um carinho enorme por você. Obrigado por cada momento, por cada conversa, por cada bronca, por cada viagem, por cada risada e até pelos caos que você causou sem perceber. Você fez parte de uma fase da minha vida que eu nunca vou esquecer.</p>
+
+        <p>I love you, Maria. De verdade. 💛<br>
+        E que a vida seja tão forte e verdadeira com você quanto você foi com a gente nesses três anos.</p>
+
+        <img src="photo2.jpg" class="photo">
+    </div>
+
+</div>
+
+<script>
+function openBook() {
+    let cover = document.getElementById("cover");
+    let book = document.getElementById("book");
+    let music = document.getElementById("music");
+
+    cover.style.transform = "scale(0) rotateY(180deg)";
+    cover.style.opacity = "0";
+
+    setTimeout(() => {
+        cover.style.display = "none";
+        book.style.display = "flex";
+        setTimeout(() => book.style.opacity = "1", 100);
+    }, 1500);
+
+    music.play();
+}
+</script>
+
+</body>
+</html>
